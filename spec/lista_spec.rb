@@ -73,11 +73,11 @@ describe Bib do
         end
         
         it "Existe un Libro" do
-            expect(@refer2).to be_an_instance_of Libro
+            expect(@refer4).to be_an_instance_of Libro
         end
         
         it "Existe una Revista" do
-            expect(@refer4).to be_an_instance_of Revista
+            expect(@refer2).to be_an_instance_of Revista
         end
         
         it "Existe un Documento Electronico" do
