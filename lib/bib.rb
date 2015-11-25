@@ -2,6 +2,9 @@ require "bib/version"
 
 module Bib
     class Biblio
+        
+        include Comparable
+        
         attr_accessor :autores, :titulo, :serie, :editorial, :edicion, :fecha
         
         def initialize(autores, titulo, serie, editorial, edicion, fecha)
@@ -15,6 +18,14 @@ module Bib
                 
         def to_s
         "(#{autores},#{titulo},#{serie},#{editorial},#{edicion},#{fecha})"
+        end
+        
+        def <=> other
+            autores <=> other.autores
+            
+            #if authores == other.authores
+             #   fecha <=> other.fecha
+            #end
         end
     end
     
