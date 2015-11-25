@@ -55,12 +55,14 @@ describe Bib do
             expect(@list.max).to eql(@refer4)
         end
         
-        it "Ordenar lista" do
-=begin
-        @list.sort
-        expect(@list.pop_init).to eql(@refer1)
-        expect(@list.pop_final).to eql(@refer4)
-=end
+        it "Contar elementos de la lista" do
+            expect(@list.count).to eql(5)
         end
+        
+=begin        it "Ordenar lista" do
+            @list.sort
+            expect(@list.pop_init).to eql(@refer1)
+            expect(@list.pop_final).to eql(@refer4)
+=end      end
     end
 end

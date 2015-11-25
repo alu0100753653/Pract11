@@ -20,6 +20,7 @@ module Bib
         "(#{autores},#{titulo},#{serie},#{editorial},#{edicion},#{fecha})"
         end
         
+        #Metodo para el modulo comparable
         def <=> other
             compar=autores <=> other.autores
             
