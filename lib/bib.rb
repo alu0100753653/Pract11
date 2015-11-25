@@ -21,7 +21,14 @@ module Bib
         end
         
         def <=> other
-            autores <=> other.autores
+            compar=autores <=> other.autores
+            
+            if compar == 0
+                return fecha<=>other.fecha
+            else
+                return compar
+            end
+            
         end
     end
     

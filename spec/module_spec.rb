@@ -12,6 +12,7 @@ describe Bib do
         @refer3=Libro.new("David Chelimsky", "The RSpec Book: Behaviour Driven Development with RSpec, Cucumber, and Friends", "The Facets of Ruby", "Pragmatic Bookshelf", "1 edition", "December 25, 2010","ISBN-10: 1934356379")
         @refer4=Revista.new("Scott Chacon", "Pro Git 2009th Edition", "Pro", "Apress", "2009 edition", "August 27, 2009","N = 294")
         @refer5=Revista.new("David Flanagan", "The Ruby Programming Language", "Serie", "O’Reilly Media", " 1 edition", "February 4, 2008","N=228")
+        @refer6=Libro.new("David Chelimsky", "The RSpec Book: Behaviour Driven Development with RSpec, Cucumber, and Friends", "The Facets of Ruby", "Pragmatic Bookshelf", "1 edition", "December 20, 2010","ISBN-10: 1934356379")
         
         
         @list=List.new()
@@ -33,6 +34,10 @@ describe Bib do
         it "Es mayor?" do
             #comparamos si refer 2 es mayor que refer 1. True
             expect(@refer2>@refer1).to be true
+        end
+        
+        it "Es mayor?(mismos autores)" do
+             expect(@refer2>@refer6).to be true
         end
         
         it "Son iguales?" do
