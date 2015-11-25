@@ -22,10 +22,6 @@ module Bib
         
         def <=> other
             autores <=> other.autores
-            
-            #if authores == other.authores
-             #   fecha <=> other.fecha
-            #end
         end
     end
     

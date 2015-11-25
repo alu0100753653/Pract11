@@ -14,13 +14,13 @@ describe Bib do
         @refer5=Revista.new("David Flanagan", "The Ruby Programming Language", "Serie", "O’Reilly Media", " 1 edition", "February 4, 2008","N=228")
         
         
-        @list1=List.new()
+        @list=List.new()
         #Insertamos referencias para pruebas
-        @list1.push_init(@refer1)
-        @list1.push_init(@refer2)
-        @list1.push_init(@refer3)
-        @list1.push_init(@refer4)
-        @list1.push_init(@refer5)
+        @list.push_init(@refer1)
+        @list.push_init(@refer2)
+        @list.push_init(@refer3)
+        @list.push_init(@refer4)
+        @list.push_init(@refer5)
         
     end
     
@@ -43,11 +43,19 @@ describe Bib do
     
     describe "Pruebas para el modulo Enumerable" do
         it "Minimo nodo de la lista" do
-            
+            expect(@list.min).to eql(@refer1)
         end
         
         it "Maximo nodo de la lista" do
-            
+            expect(@list.max).to eql(@refer4)
+        end
+        
+        it "Ordenar lista" do
+=begin
+        @list.sort
+        expect(@list.pop_init).to eql(@refer1)
+        expect(@list.pop_final).to eql(@refer4)
+=end
         end
     end
 end
