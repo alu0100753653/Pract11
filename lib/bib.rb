@@ -1,7 +1,6 @@
 require "bib/version"
 
 module Bib
-  # Your code goes here...
     class Biblio
         attr_accessor :autores, :titulo, :serie, :editorial, :edicion, :fecha
         
