@@ -44,6 +44,14 @@ describe Bib do
             #Comparamos si refer 2 es igual a refer 3. True
             expect(@refer2==@refer3).to be true
         end
+        
+        it "Es menor o igual?" do
+            expect(@refer1<=@refer2).to be true
+        end
+        
+        it "Es mayor o igual?" do
+            expect(@refer2>@refer1).to be true
+        end
     end
     
     describe "Pruebas para el modulo Enumerable" do
