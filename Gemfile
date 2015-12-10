@@ -6,3 +6,5 @@ gemspec
 group :development do
   gem 'guard'
 end
+
+#gem 'coveralls', require: false

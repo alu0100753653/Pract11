@@ -5,60 +5,54 @@ module Bib
         
         include Comparable
         
-        attr_accessor :autores, :titulo, :serie, :editorial, :edicion, :fecha
+        attr_accessor :autores, :titulo, :fecha, :autor_f
         
-        def initialize(autores, titulo, serie, editorial, edicion, fecha)
-        @autores = autores
-        @titulo = titulo
-        @serie = serie;
-        @editorial = editorial
-        @edicion = edicion
-        @fecha = fecha
+        def initialize(autores,titulo,fecha)
+            @autores = autores
+            @titulo = titulo
+            @fecha = fecha
         end
                 
         def to_s
-        "(#{autores},#{titulo},#{serie},#{editorial},#{edicion},#{fecha})"
+        "(#{autores},#{titulo},#{fecha})"
         end
         
         #Metodo para el modulo comparable
         def <=> other
-            compar=autores <=> other.autores
+            compar1=autores <=> other.autores
+            compar2=fecha<=>other.fecha
             
-            if compar == 0
-                return fecha<=>other.fecha
+            if compar1 == 0
+                return compar2
+            elsif compar2==0
+                return titulo<=>other.titulo
             else
-                return compar
+                return compar1
             end
             
         end
-    end
-    
-    class Libro < Biblio
-    
-        attr_accessor :isbn
         
-        def initialize(autor, titulo, serie, editorial, edicion, fecha, isbn)
-        super(autor, titulo, serie, editorial, edicion, fecha)
-            @isbn = isbn
+        def f_autor
+            @autor_f=[]
+            @autores.each do |autor| #recorremos el vector de autores
+                aux=""
+                autor = autor.split(" ") #separamos el nombre del apellido (ahora tenemos un array)
+                autor= autor.reverse #intercambiamos el apellido por el nombre
+                autor.each_with_index do |vec, x| #recorremos el array de autores intercambiado
+                    if(x<1) #si es el apellido
+                        aux+=vec.capitalize #ponemos la primera letra en mayuscula
+                        aux+=","#y ponemos una coma antes del nombre
+                    else
+                        aux+=vec[0].capitalize #Si es el nombre, ponemos solo la inicial y en mayuscula
+                        aux+="." #y un punto
+                    end
+                end
+                @autor_f.push(aux) #lo insertamos en el vector formateado de autores
+            end
+            
+            
+            
         end
     end
-
-    class Revista < Biblio
-            
-    	attr_accessor :revista
-            
-    	def initialize(autor, titulo, serie, editorial, edicion, fecha, revista)
-    		super(autor, titulo, serie, editorial, edicion, fecha)
-    			@revista = revista
-        end
-    end
-
-    class Electronico < Biblio
-    	attr_accessor :url
-            
-    	def initialize(autor, titulo, serie, editorial, edicion, fecha, url)
-    		super(autor, titulo, serie, editorial, edicion, fecha)
-            @url = url
-        end
-    end
+    
 end
