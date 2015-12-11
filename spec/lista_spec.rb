@@ -1,5 +1,8 @@
 require './lib/bib'
 require './lib/bib/listad.rb'
+require './lib/bib/libro'
+require './lib/bib/periodico'
+require './lib/bib/electronico'
 
 include Bib
 
