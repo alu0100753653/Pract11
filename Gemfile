@@ -7,4 +7,5 @@ group :development do
   gem 'guard'
 end
 
-#gem 'coveralls', require: false
+
+gem 'coveralls', require: false
