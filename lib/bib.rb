@@ -14,7 +14,7 @@ module Bib
         end
                 
         def to_s
-        "(#{autores},#{titulo},#{fecha})"
+        "(#{autor_f},#{titulo},#{fecha})"
         end
         
         #Metodo para el modulo comparable
@@ -49,7 +49,6 @@ module Bib
                 end
                 @autor_f.push(aux) #lo insertamos en el vector formateado de autores
             end
-            
             
             
         end
