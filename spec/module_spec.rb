@@ -20,8 +20,8 @@ describe Bib do
         
     end
     
-    it "Existe una lista de referencias" do
-        expect(@listarefer).to_not be nil
+    it "Instancia" do
+        expect(@refer3.instance_of?Periodico).to eq(true)
     end
     
     
