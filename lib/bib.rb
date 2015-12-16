@@ -10,9 +10,17 @@ module Bib
         def initialize(titulo, &block)
             self.autores = []
             self.titulo = titulo
+            
+            if block_given?  
+                if block.arity == 1
+                    yield self
+                else
+                    instance_eval &block 
+                end
+            end
         end
         
-        def author
+        def author(options = {})
              author<< " (#{options[:surname]})" if options[:surname]
              author<< " (#{options[:name]})" if options[:name]
              
@@ -20,7 +28,7 @@ module Bib
         end
                 
         def to_s
-        "(#{autor_f},#{titulo},#{fecha})"
+        "{#{titulo})"
         end
         
         #Metodo para el modulo comparable
