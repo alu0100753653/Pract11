@@ -26,16 +26,14 @@ describe Bib do
     end
 =end
 
-    bloque=Biblio.new("Titulo") do
+    bloque=Revista.new("Titulo","Resumen") do
 
         author :surname => "Apellido",
                :name => "Nombre"
 
-=begin
-        author :name => "Titulo de la revista",
+        journal :name => "Titulo de la revista",
                 :volumen => 20,
                 :issue => 3
-=end
     end
 
     puts bloque

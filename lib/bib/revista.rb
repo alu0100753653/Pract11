@@ -1,13 +1,12 @@
 require './lib/bib.rb'
 include Bib
 
-class Revista 
+class Revista < Biblio
             
-    	attr_accessor  :titulo,:abstract,:editorial
+    	attr_accessor  :abstract,:editorial
             
     	def initialize(titulo,abstract,&block)
-    		#super(titulo,&block)
-    		self.titulo=titulo
+    		super(titulo,&block)
     		self.abstract = abstract
     		self.editorial=[]
     		
@@ -21,22 +20,23 @@ class Revista
     	end
         
         def journal(a,options = {})
-            journal=a
-            journal<< " (#{options[:name]})" if options[:name]
-            journal<< " (#{options[:volumen]})" if options[:volumen]
-            journal<< " (#{options[:issue]})" if options[:issue]
+            journals=a
+            journals<< " (#{options[:name]})" if options[:name]
+            journals<< " (#{options[:volumen]})" if options[:volumen]
+            journals<< " (#{options[:issue]})" if options[:issue]
             
-            editorial<< journal
+            editorial << journals
         end
         
         def to_s
+            
             output = titulo
             output << "\n#{'=' * titulo.size}\n\n"
-            #output << "Autor: #{autores.join('& ')}\n\n"
+            output << "Autor: #{autores.join('& ')}\n\n"
+            
             editorial.each_with_index do |journal, index|
                 output << "#{journal}\n"
             end
-            
             output =abstract
         end
         
