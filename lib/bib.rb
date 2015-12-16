@@ -5,11 +5,11 @@ module Bib
         
         include Comparable
         
-        attr_accessor :autores, :titulo
+        attr_accessor :titulo,:autores
         
         def initialize(titulo, &block)
-            self.autores = []
             self.titulo = titulo
+            self.autores = []
             
             if block_given?  
                 if block.arity == 1
@@ -20,16 +20,19 @@ module Bib
             end
         end
         
-        def author(options = {})
-             author<< " (#{options[:surname]})" if options[:surname]
-             author<< " (#{options[:name]})" if options[:name]
+        def author(a,options = {})
+             authors=a
+             authors<< " (#{options[:surname]})" if options[:surname]
+             authors<< " (#{options[:name]})" if options[:name]
              
-             autores << author
+             autores << authors
         end
                 
-        def to_s
-        "{#{titulo})"
-        end
+         def to_s
+            output = titulo
+            output << "\n#{'=' * titulo.size}\n\n"
+            output << "Autor: #{autores.join('& ')}\n\n"
+         end
         
         #Metodo para el modulo comparable
         def <=> other
