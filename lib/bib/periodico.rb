@@ -5,9 +5,10 @@ class Periodico < Biblio
     	attr_accessor :paginas, :periodico
             
     	def initialize(autores, titulo,fecha,periodico, paginas)
-    		super(autor,titulo,fecha)
+    		super(autor,titulo)
     		@paginas = paginas
     		@periodico=periodico
+    		@fecha=fecha
         end
         
         def to_s

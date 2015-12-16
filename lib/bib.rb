@@ -5,12 +5,18 @@ module Bib
         
         include Comparable
         
-        attr_accessor :autores, :titulo, :fecha, :autor_f
+        attr_accessor :autores, :titulo
         
-        def initialize(autores,titulo,fecha)
-            @autores = autores
-            @titulo = titulo
-            @fecha = fecha
+        def initialize(titulo, &block)
+            self.autores = []
+            self.titulo = titulo
+        end
+        
+        def author
+             author<< " (#{options[:surname]})" if options[:surname]
+             author<< " (#{options[:name]})" if options[:name]
+             
+             autores << author
         end
                 
         def to_s
@@ -31,27 +37,5 @@ module Bib
             end
             
         end
-        
-        def f_autor
-            @autor_f=[]
-            @autores.each do |autor| #recorremos el vector de autores
-                aux=""
-                autor = autor.split(" ") #separamos el nombre del apellido (ahora tenemos un array)
-                autor= autor.reverse #intercambiamos el apellido por el nombre
-                autor.each_with_index do |vec, x| #recorremos el array de autores intercambiado
-                    if(x<1) #si es el apellido
-                        aux+=vec.capitalize #ponemos la primera letra en mayuscula
-                        aux+=","#y ponemos una coma antes del nombre
-                    else
-                        aux+=vec[0].capitalize #Si es el nombre, ponemos solo la inicial y en mayuscula
-                        aux+="." #y un punto
-                    end
-                end
-                @autor_f.push(aux) #lo insertamos en el vector formateado de autores
-            end
-            
-            
-        end
     end
-    
 end
