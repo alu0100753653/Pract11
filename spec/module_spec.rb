@@ -1,8 +1,9 @@
 require './lib/bib'
-require './lib/bib/libro'
-require './lib/bib/periodico'
-require './lib/bib/electronico'
-require './lib/bib/revista'
+require './lib/bib/Libro'
+require './lib/bib/Periodico'
+require './lib/bib/Electronico'
+require './lib/bib/Revista'
+require '/lib/bib/Lista'
 
 include Bib
 
@@ -21,22 +22,7 @@ describe Bib do
         
     end
     
-    it "Instancia" do
-        expect(@refer3.instance_of?Periodico).to eq(true)
-    end
 =end
 
-    bloque=Revista.new("Titulo","Resumen") do
-
-        author :surname => "Apellido",
-               :name => "Nombre"
-
-        journal :name => "Titulo de la revista",
-                :volumen => 20,
-                :issue => 3
-    end
-
-    puts bloque
-    
 end
 

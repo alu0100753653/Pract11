@@ -1,11 +1,7 @@
-require "bib/version"
-
-module Bib
-  # Your code goes here...
-    class Biblio
+class Biblio
         include Comparable
        
-        attr_reader :autores,:apellidos, :titulo, :fecha, :serie, :edicion ,:numeroedicion, :isbn 
+        attr_reader :autores,:apellidos, :titulo, :fecha, :serie, :edicion ,:numeroedicion, :isbn  
         
         def initialize(autores,apellidos, titulo, fecha, serie, edicion,numeroedicion,isbn)
             @autores = autores
@@ -52,7 +48,7 @@ module Bib
 
         def getedicion()
 			"#{@edicion}"
-        end
+	    end
 
 		def getnumeroedicion()
 			"#{@numeroedicion}"
@@ -83,5 +79,4 @@ module Bib
 		end
 		
 		
-    end
 end
