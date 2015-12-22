@@ -5,16 +5,15 @@ module Bib
     class Biblio
         include Comparable
        
-        attr_reader :autores,:apellidos, :titulo, :fecha, :serie, :edicion ,:numeroedicion, :isbn 
+        attr_reader :autores,:apellidos, :titulo, :fecha, :serie, :edicion ,:isbn 
         
-        def initialize(autores,apellidos, titulo, fecha, serie, edicion,numeroedicion,isbn)
+        def initialize(autores,apellidos, titulo, fecha, serie, edicion,isbn)
             @autores = autores
             @apellidos = apellidos
             @titulo = titulo
             @fecha = fecha
             @serie = serie
             @edicion = edicion
-            @numeroedicion = numeroedicion
             @isbn = isbn
         end
         
@@ -54,9 +53,6 @@ module Bib
 			"#{@edicion}"
         end
 
-		def getnumeroedicion()
-			"#{@numeroedicion}"
-		end
 
 		def getserie()
 			"#{@serie}"

@@ -3,8 +3,8 @@ include Bib
 
 class Libro < Biblio
     
-        def initialize(autores,apellidos,titulo, fecha, serie,edicion, numeroedicion, isbn)
-            super(autores,apellidos,titulo, fecha, serie,edicion, numeroedicion, isbn)
+        def initialize(autores,apellidos,titulo,fecha,serie,edicion,isbn)
+            super(autores,apellidos,titulo,fecha,serie,edicion,isbn)
         end
        
         def <=> other
@@ -15,5 +15,15 @@ class Libro < Biblio
 	      @titulo == other.titulo
 	   end
        
+       def to_s
+           cadena=""
+                    cadena << "#{autores}\n   "
+                    cadena << "#{apellidos}\n   "
+            		cadena << "#{titulo}\n   "
+            		cadena << "(#{serie})\n   "
+            		cadena << "#{edicion}; edition (#{fecha})\n   "
+                    cadena << "#{isbn}\n"
+                    cadena<<"\n"
+       end
        
 end

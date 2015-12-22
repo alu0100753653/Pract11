@@ -3,6 +3,7 @@ require './lib/bib/Nodo.rb'
 class Lista
    	include Enumerable
    	attr_reader :inicio,:fin
+   	attr_accessor :inicio,:fin
    
       def initialize()
          @inicio = nil
@@ -79,5 +80,15 @@ class Lista
       		end
       		
       end 
+      
+def length
+         nodo=@inicio
+         cont=0
+         while(nodo!=nil)
+            cont+=1
+            nodo=nodo.next
+         end
+         cont
+end
       
 end
